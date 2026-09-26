@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+const API_URL = 'https://frolicam-login.onrender.com'
 
 export default function Login() {
   const navigate = useNavigate()
@@ -49,7 +50,7 @@ export default function Login() {
 
     setIsSubmitting(true)
     try {
-      const res = await axios.post('/api/auth/login', {
+      const res = await axios.post(`${API_URL}/api/auth/login`, {
         email: form.email.trim(),
         password: form.password
       })
